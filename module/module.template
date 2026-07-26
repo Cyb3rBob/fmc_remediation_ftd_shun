@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="TriggerFTDShun">
+    <global_config>
+        <display_name>Remediation Action Using FTD Shun</display_name>
+        <description>This remediation module will send source IP address to FTD Shun</description>
+        <binary>ftd_shun.py</binary>
+        <version>1.0</version>
+    </global_config>
+
+    <config_template>
+                <string>
+                    <name>firewall_ip</name>
+            <display_name> Enter the firewall ip</display_name>
+                </string>
+                <string>
+            <name>firewall_username</name>
+            <display_name> Enter the firewall username</display_name>
+                </string>
+                <string>
+            <name>firewall_password</name>
+            <display_name> Enter the password to login</display_name>
+                </string>
+                <string>
+            <name>firewall_port</name>
+            <display_name> Enter the ssh port number</display_name>
+                </string>
+                <string>
+            <name>firewall_obs</name>
+            <display_name> Enter any other observation or firewall description</display_name>
+                </string>
+    </config_template>
+
+    <remediation_type name="block_source">
+        <display_name>Block Source IP Address</display_name>
+        <policy_event_data>
+            <pe_item required="true">src_ip_addr</pe_item>
+        </policy_event_data>
+    </remediation_type>
+
+    <!-- remediation_type name="block_destination">
+        <display_name>Block Destination IP Address</display_name>
+        <policy_event_data>
+            <pe_item required="true">dest_ip_addr</pe_item>
+        </policy_event_data>
+    </remediation_type -->
+
+    <exit_status value="129">Failed to trigger FTD shun</exit_status>
+</module>
