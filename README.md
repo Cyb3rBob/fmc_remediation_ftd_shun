@@ -1,2 +1,2 @@
-# fmc_remediatin_ftd_shun
+# fmc_remediation_ftd_shun
 Cisco Secure Firewall FMC Remediation Module - Shun 
